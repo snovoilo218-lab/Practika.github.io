@@ -1,0 +1,463 @@
+/* ---------- CSS (стили) ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #2c5f2d;      /* глубокий зелёный, отсылка к саду Шевченко */
+  --primary-dark: #1e3f1f;
+  --secondary: #f9a826;    /* тёплый акцент */
+  --light-bg: #fef9e8;
+  --text-dark: #2d2f36;
+  --text-muted: #5a626e;
+  --white: #ffffff;
+  --gray-light: #f0f2f5;
+  --shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+  --radius: 1rem;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background-color: var(--gray-light);
+  color: var(--text-dark);
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+/* контейнер */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* шапка */
+.header {
+  background: linear-gradient(135deg, var(--primary) 0%, #1b4d1c 100%);
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.logo p {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+/* навигация */
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-menu a:hover {
+  border-bottom-color: var(--secondary);
+  color: #ffdd99;
+}
+
+.burger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* hero-секция */
+.hero {
+  background: linear-gradient(120deg, var(--light-bg) 0%, #fff5e6 100%);
+  padding: 3rem 0 3rem;
+  border-bottom: 1px solid #e9e2d0;
+}
+
+.hero-grid {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h2 {
+  font-size: 2.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.hero-text .badge {
+  background: var(--secondary);
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border-radius: 40px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #2d2f36;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: #4a4e5c;
+  margin-bottom: 1.5rem;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.hero-image {
+  flex: 1;
+  background: #d9c8b2;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* общие секции */
+section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-dark);
+  position: relative;
+  font-weight: 700;
+}
+
+.section-title:after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--secondary);
+  margin: 0.6rem auto 0;
+  border-radius: 4px;
+}
+
+/* карточки учителей */
+.teachers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.teacher-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+  text-align: center;
+  padding-bottom: 1.5rem;
+}
+
+.teacher-card:hover {
+  transform: translateY(-8px);
+}
+
+.teacher-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 1.5rem auto 1rem;
+  display: block;
+  border: 4px solid var(--secondary);
+}
+
+.teacher-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.teacher-subj {
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* новости в виде сетки */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.news-card {
+  background: white;
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border-left: 5px solid var(--secondary);
+  transition: all 0.2s;
+}
+
+.news-date {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.news-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+/* галерея-слайдер */
+.slider-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.8rem;
+  box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  display: block;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.2rem 0.8rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.2s;
+  z-index: 2;
+}
+
+.slider-btn:hover {
+  background: var(--secondary);
+  color: #1e3f1f;
+}
+
+.prev {
+  left: 1rem;
+}
+
+.next {
+  right: 1rem;
+}
+
+.dots {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #bbb;
+  border-radius: 50%;
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: var(--primary);
+  transform: scale(1.2);
+}
+
+/* контакты */
+.contacts-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  background: white;
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-info i {
+  width: 2rem;
+  color: var(--primary);
+  font-size: 1.3rem;
+}
+
+.contact-info p {
+  margin: 1rem 0;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.map {
+  flex: 1.5;
+  min-height: 250px;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* форма обратной связи */
+.feedback-form {
+  margin-top: 2rem;
+  background: #fef7e8;
+  padding: 1.8rem;
+  border-radius: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 2rem;
+  font-family: inherit;
+}
+
+.btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.8rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: var(--secondary);
+  color: #2d2f36;
+}
+
+footer {
+  background: var(--primary-dark);
+  color: #cfdfcf;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+/* адаптив */
+@media (max-width: 800px) {
+  .burger {
+    display: block;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background: var(--primary);
+    width: 80%;
+    height: calc(100% - 80px);
+    flex-direction: column;
+    padding: 2rem;
+    transition: 0.3s;
+    gap: 1.5rem;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.2);
+    border-radius: 0 1rem 1rem 0;
+    z-index: 99;
+  }
+  .nav-menu.active {
+    left: 0;
+  }
+  .hero-text h2 {
+    font-size: 2rem;
+  }
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .slide img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 550px) {
+  .container {
+    padding: 0 16px;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
